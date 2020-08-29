@@ -13,9 +13,9 @@ namespace ConsoleApp1
         {
 
         }
-        public TopPerformer(string candidateName, int age, string qualification, int rank)
+        public TopPerformer(string candidateName, int age, string qualification, int rank):base(candidateName,age,qualification)
         {
-
+            Rank = rank;
         }
         public override int EnlistCandidate()
         {

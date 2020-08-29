@@ -12,18 +12,27 @@ namespace ConsoleApp1
         public bool FeesPaid { get; set; }
         public int NoOfStudents { get; set; }
         public List<string> Qualification { get; set; }
-        public int Rcounter { get; set; }
+        public static int Rcounter { get; set; }
         public CandidateRegistration()
         {
-                
+            CandiateName = new List<string>();
+            Qualification = new List<string>();
         }
-        public CandidateRegistration(bool feesPaid)
+        public CandidateRegistration(bool feesPaid) : this()
         {
-
+            FeesPaid = feesPaid;
         }
         public int RegisterCandidate(Candidate candidateObject)
         {
-            return 0;
+            if (FeesPaid)
+            {
+                Rcounter++;
+                candidateObject.Qualification = Qualification.ToString();
+                candidateObject.CandidateName = CandiateName.ToString();
+                return 1;
+            }
+            else
+                return 0;
         }
     }
 }

@@ -13,9 +13,9 @@ namespace ConsoleApp1
         {
 
         }
-        public Retestcandidate(string candidateName,int age,string qualification,int noOfRetest)
+        public Retestcandidate(string candidateName,int age,string qualification,int noOfRetest) : base(candidateName,age,qualification)
         {
-                
+            NoOfRetest = noOfRetest;     
         }
 
         public override int EnlistCandidate()

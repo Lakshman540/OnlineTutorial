@@ -8,7 +8,7 @@ namespace ConsoleApp1
 {
     public abstract class Candidate
     {
-        public int counter;
+        public static int counter=999;
         public int Age { get; set; }
         public int CandidateId { get; set; }
         public string CandidateName { get; set; }
@@ -16,11 +16,13 @@ namespace ConsoleApp1
         public string Qualification { get; set; }
         public Candidate()
         {
-
+            CandidateId = ++counter;
         }
-        public Candidate(string candidateName,int age,string qualification)
+        public Candidate(string candidateName,int age,string qualification) : this()
         {
-        
+            CandidateName = candidateName;
+            Age = age;
+            Qualification = qualification;
         }
         public abstract int EnlistCandidate();
     }

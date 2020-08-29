@@ -23,57 +23,53 @@ namespace ConsoleApp1
 
         public override int EnlistCandidate()
         {
-            int PriorityIndex;
-
-            if (NoOfRetest == 1)
+            try
             {
-                if (Qualification=="BE")
-                {
-                    PriorityIndex = 4;
-                    return 1;
-                }
-                else if(Qualification == "ME")
-                {
-                    PriorityIndex = 3;
-                    return 1;
-                }
-                else
-                {
-                    PriorityIndex = 2;
-                    return 1;
-                }
-            }
-            else if (NoOfRetest == 0)
-            {
-                if (Qualification == "BE")
-                {
-                    PriorityIndex = 5;
-                    return 1;
-                }
-                else if (Qualification == "ME")
-                {
-                    PriorityIndex = 4;
-                    return 1;
-                }
-                else
-                {
-                    PriorityIndex = 2;
-                    return 1;
-                }
-            }
-            else
-            {
-                try
-                {
-                    
-                }
-                catch(InvalidException ex)
-                {
+                int PriorityIndex;
 
+                if (NoOfRetest == 1)
+                {
+                    if (Qualification=="BE")
+                    {
+                        PriorityIndex = 4;
+                        return 1;
+                    }
+                    else if(Qualification == "ME")
+                    {
+                        PriorityIndex = 3;
+                        return 1;
+                    }
+                    else
+                    {
+                        PriorityIndex = 2;
+                        return 1;
+                    }
                 }
-                return -1;
-
+                else if (NoOfRetest == 0)
+                {
+                    if (Qualification == "BE")
+                    {
+                        PriorityIndex = 5;
+                        return 1;
+                    }
+                    else if (Qualification == "ME")
+                    {
+                        PriorityIndex = 4;
+                        return 1;
+                    }
+                    else
+                    {
+                        PriorityIndex = 2;
+                        return 1;
+                    }
+                }
+                                   
             }
+            catch(InvalidException ex)
+            {
+               
+            }
+            return -1;
         }
     }
 }

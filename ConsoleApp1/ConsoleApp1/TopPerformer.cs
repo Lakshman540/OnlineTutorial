@@ -16,54 +16,55 @@ namespace ConsoleApp1
         public TopPerformer(string candidateName, int age, string qualification, int rank):base(candidateName,age,qualification)
         {
             Rank = rank;
-            CandidateName = candidateName;
-            Age = age;
-            Qualification = qualification;
         }
         
         public override int EnlistCandidate()
         {
-            int PriorityIndex;
-
-            if(Qualification=="BE")
-            {
-            if(Rank>0 && Rank<=5)
+           try
+           {                             
+              if(Qualification=="BE")
+              {
+              if(Rank>0 && Rank<=5)
+                  {
+                      PriorityIndex = 9;
+                      return 1;
+                  }
+              else
+                  {
+                      PriorityIndex = 8;
+                      return 1;
+                  }
+              }
+              else if(Qualification == "ME")
+              {
+                  if (Rank > 0 && Rank <= 5)
+                  {
+                      PriorityIndex = 7;
+                      return 1;
+                  }
+                  else
+                  {
+                      PriorityIndex = 6;
+                      return 1;
+                  }
+              }
+              else
                 {
-                    PriorityIndex = 9;
-                    return 1;
+                    throw new InvalidException();
                 }
-            else
-                {
-                    PriorityIndex = 8;
-                    return 1;
-                }
-            }
-            else if(Qualification == "ME")
-            {
-                if (Rank > 0 && Rank <= 5)
-                {
-                    PriorityIndex = 7;
-                    return 1;
-                }
-                else
-                {
-                    PriorityIndex = 6;
-                    return 1;
-                }
-            }
-            else
-            {
-                try
-                {
-
-                }
-                catch (InvalidException ex)
-                {
-
-                }
+              
+                
+           }
+           catch (InvalidException ex)
+           {
                 return -1;
-
             }
+         catch(Exception e)
+            {
+                return -1;
+            }
+
+            
         }
     }
 }

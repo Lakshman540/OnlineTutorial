@@ -24,15 +24,23 @@ namespace ConsoleApp1
         }
         public int RegisterCandidate(Candidate candidateObject)
         {
-            if (FeesPaid)
+            try
             {
-                Rcounter++;
-                candidateObject.Qualification = Qualification.ToString();
-                candidateObject.CandidateName = CandiateName.ToString();
-                return 1;
+                if (FeesPaid)
+                {
+                    Rcounter++;
+                    Qualification.Add(candidateObject.Qualification);
+                    CandiateName.Add(candidateObject.CandidateName);
+                    return 1;
+                }
+                else
+                {
+                    return 0;
+                }
             }
-            else
+            catch(Exception e)
             {
+                Console.WriteLine(e.Message);
                 return 0;
             }
         }

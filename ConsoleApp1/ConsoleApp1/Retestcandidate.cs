@@ -16,17 +16,12 @@ namespace ConsoleApp1
         public Retestcandidate(string candidateName,int age,string qualification,int noOfRetest) : base(candidateName,age,qualification)
         {
             NoOfRetest = noOfRetest;
-            CandidateName = candidateName;
-            Age = age;
-            Qualification = qualification;
         }
 
         public override int EnlistCandidate()
         {
             try
             {
-                int PriorityIndex;
-
                 if (NoOfRetest == 1)
                 {
                     if (Qualification=="BE")
@@ -63,13 +58,21 @@ namespace ConsoleApp1
                         return 1;
                     }
                 }
+                else
+                {
+                    throw new InvalidException();
+                }
                                    
             }
             catch(InvalidException ex)
             {
-               
+                return -1;
             }
-            return -1;
+            catch(Exception e)
+            {
+                return -1;
+            }
+            
         }
     }
 }
